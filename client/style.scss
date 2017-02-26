@@ -1,3 +1,20 @@
-body {
-    background:pink;
+html,body {
+    height:100%;
+}
+
+#app, #appdiv {
+    height:100%;
+}
+
+svg {
+    height:100%;
+    width:100%;
+    polygon, rect {
+	fill:whiteSmoke;
+	stroke:black;
+	stroke-dasharray: 2;
+    }
+
+    .in-up-left-right {
+    }
 }
