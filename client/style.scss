@@ -1,8 +1,17 @@
+@page  {
+    width: 21cm;
+    height: 29.7cm;
+    size: A4;
+    margin:0;  
+} 
+
 html,body {
+    margin:0;
+    padding:0;
     height:100%;
 }
 
-#app, #appdiv {
+#app, .appdiv {
     height:100%;
 }
 
@@ -15,6 +24,25 @@ svg {
 	stroke-dasharray: 2;
     }
 
+    
     .in-up-left-right {
     }
+}
+
+.print {
+    svg {
+	height:297mm;
+    }
+    polygon, rect {
+	stroke:none;
+	stroke-dasharray:0;
+    }
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    overflow:hidden;
+  }
 }
