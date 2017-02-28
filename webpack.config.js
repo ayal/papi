@@ -37,7 +37,11 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
-      {from: 'client/index.html'}
+      {from: 'client/index.html', to: __dirname,
+       transform: function(content, path){
+	console.log('transforming content!', content);
+	return content.toString().replace(new RegExp('/bundle.js','gim'), 'public/bundle.js')
+      }}
     ]),
   ]
 };
