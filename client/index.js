@@ -233,7 +233,7 @@ export class App extends React.Component {
       console.log('color', e.target.value);
       var colors = JSON.parse(this.props.location.hash.slice(1) || '{}') || {};
       colors[this.state.focus] = e.target.value;
-      this.context.router.push({pathname: '/', hash: '#' + JSON.stringify(colors)});
+      this.context.router.push({pathname: '.', hash: '#' + JSON.stringify(colors)});
     },100);
   }
   
@@ -305,9 +305,9 @@ export class App extends React.Component {
 	<div>
 	  pick color:
 	  <input type="color" onChange={this.changeColor().bind(this)} />
-	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: '/print/front', hash: this.props.location.hash}))}>print front</div>
-	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: '/print/back', hash: this.props.location.hash}))}>print back</div>
-	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: '/print/frontback', hash: this.props.location.hash}))}>print front+back</div>
+	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: 'print/front', hash: this.props.location.hash}))}>print front</div>
+	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: 'print/back', hash: this.props.location.hash}))}>print back</div>
+	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: 'print/frontback', hash: this.props.location.hash}))}>print front+back</div>
 	</div>
 	<svg>
 	  <Back getStyle={getStyle.bind(this)} setFocus={this.setFocus.bind(this)} {...backProps} />
