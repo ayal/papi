@@ -233,7 +233,7 @@ export class App extends React.Component {
       console.log('color', e.target.value);
       var colors = JSON.parse(this.props.location.hash.slice(1) || '{}') || {};
       colors[this.state.focus] = e.target.value;
-      this.context.router.push({pathname: '.', hash: '#' + JSON.stringify(colors)});
+      this.context.router.push({pathname: '/papi', hash: '#' + JSON.stringify(colors)});
     },100);
   }
   
@@ -265,7 +265,7 @@ export class App extends React.Component {
 
     // front
     var frontX = 50;
-    var frontY = 50;
+    var frontY = 10;
     var frontW = 100;
     var frontH = frontW*Math.sqrt(2);
     var frontProps = {frontX, frontY, frontW, frontH};
@@ -273,7 +273,7 @@ export class App extends React.Component {
     // page back
 
     var backX = frontX;
-    var backY = 250;
+    var backY = 210;
     var backW = frontW;
     var backH = frontH;
     var backProps = {backX, backY, backW, backH};
@@ -281,7 +281,7 @@ export class App extends React.Component {
     // wallet in
 
     var walletInLeftX = frontX;
-    var walletInLeftY = 450;
+    var walletInLeftY = 410;
     var walletInLeftW = frontW / 2;
     var walletInLeftH = frontW / 2; // ??
     
@@ -295,7 +295,7 @@ export class App extends React.Component {
 
     // walletout
     var walletOutLeftX = frontX;
-    var walletOutLeftY = 550;
+    var walletOutLeftY = 510;
     var walletOutLeftW = frontW / 2;
     var walletOutLeftH = frontW / 2; // ??
     var woutProps = {walletOutLeftX, walletOutLeftY, walletOutLeftW, walletOutLeftH};
@@ -305,9 +305,9 @@ export class App extends React.Component {
 	<div>
 	  pick color:
 	  <input type="color" onChange={this.changeColor().bind(this)} />
-	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: './print/front', hash: this.props.location.hash}))}>print front</div>
-	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: './print/back', hash: this.props.location.hash}))}>print back</div>
-	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: './print/frontback', hash: this.props.location.hash}))}>print front+back</div>
+	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: '/papi/print/front', hash: this.props.location.hash}))}>print front</div>
+	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: '/papi/print/back', hash: this.props.location.hash}))}>print back</div>
+	  <div className="button" onClick={(x)=>(this.context.router.push({pathname: '/papi/print/frontback', hash: this.props.location.hash}))}>print front+back</div>
 	</div>
 	<svg>
 	  <Back getStyle={getStyle.bind(this)} setFocus={this.setFocus.bind(this)} {...backProps} />
@@ -410,8 +410,6 @@ export class Print extends React.Component {
 
 ReactDOM.render(
   (<Router history={browserHistory}>
-	  <Route path="/print/:which" component={Print} />
-	  <Route path="/" component={App} />
 	  <Route path="/papi/print/:which" component={Print} />
 	  <Route path="/papi" component={App} />
 	  <Route path="/papi/" component={App} />
