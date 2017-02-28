@@ -410,7 +410,11 @@ export class Print extends React.Component {
 
 ReactDOM.render(
   (<Router history={browserHistory}>
-	<Route path="/print/:which" component={Print} />
-	<Route path="/" component={App} />
+	  <Route path="/print/:which" component={Print} />
+	  <Route path="/" component={App} />
+	  <Route path="/papi/print/:which" component={Print} />
+	  <Route path="/papi" component={App} />
+	  <Route path="/papi/" component={App} />
+
   </Router>)
   , document.getElementById("app"));
