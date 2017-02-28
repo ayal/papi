@@ -19,7 +19,7 @@ svg {
     height:100%;
     width:100%;
     polygon, rect {
-	fill:whiteSmoke;
+	fill:none;
 	stroke:black;
 	stroke-dasharray: 2;
     }
@@ -45,4 +45,9 @@ svg {
     height: 297mm;
     overflow:hidden;
   }
+}
+
+.button {
+    text-decoration:underline;
+    cursor:pointer;
 }
